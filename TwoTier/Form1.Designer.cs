@@ -35,6 +35,7 @@
             this.Password = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.ReadButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,11 +101,22 @@
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
+            // ReadButton
+            // 
+            this.ReadButton.Location = new System.Drawing.Point(342, 162);
+            this.ReadButton.Name = "ReadButton";
+            this.ReadButton.Size = new System.Drawing.Size(75, 23);
+            this.ReadButton.TabIndex = 7;
+            this.ReadButton.Text = "Read";
+            this.ReadButton.UseVisualStyleBackColor = true;
+            this.ReadButton.Click += new System.EventHandler(this.ReadButton_Click);
+            // 
             // UsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ReadButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Password);
@@ -130,5 +142,6 @@
         private TextBox Password;
         private DataGridView dataGridView1;
         private Button DeleteButton;
+        private Button ReadButton;
     }
 }

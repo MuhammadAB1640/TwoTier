@@ -60,5 +60,20 @@ namespace TwoTier
 
             connection.Close();
         }
+
+        private void ReadButton_Click(object sender, EventArgs e)
+        {
+            string command = "Select * from Users";
+
+            SqlCommand sqlCommand = new SqlCommand(command, connection);
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+            DataTable dt = new DataTable();
+
+            sqlDataAdapter.Fill(dt);
+
+            dataGridView1.DataSource = dt;
+        }
     }
 }
