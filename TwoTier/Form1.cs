@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace TwoTier
 {
-    public partial class Form1 : Form
+    public partial class UsersForm : Form
     {
-        public Form1()
+        string connectionString = "Server=localhost; database=TwoTier; Integrated Security=True";
+        SqlConnection connection;
+        public UsersForm()
         {
             InitializeComponent();
+
+            connection = new SqlConnection(connectionString);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -29,8 +33,11 @@ namespace TwoTier
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost; database=TwoTier; Integrated Security=True";
-            SqlConnection connection = new SqlConnection(connectionString);
+
+            string username = Username.Text;
+            string password = Password.Text;
+            string command = $"Insert into Users values('{username}', '{password}')";
+            SqlCommand sqlCommand = new SqlCommand(command, connection);
 
             connection.Open();
             connection.Close();

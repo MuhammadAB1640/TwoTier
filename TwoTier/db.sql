@@ -10,3 +10,7 @@ Create Table Users
 	Password nvarchar(50) not null
 )
 go
+
+Select * from Users
+
+Insert into Users values ('Muhammad', '123')

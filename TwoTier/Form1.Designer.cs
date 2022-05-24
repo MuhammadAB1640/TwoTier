@@ -1,6 +1,6 @@
 ﻿namespace TwoTier
 {
-    partial class Form1
+    partial class UsersForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -78,7 +78,7 @@
             this.Password.Size = new System.Drawing.Size(100, 23);
             this.Password.TabIndex = 4;
             // 
-            // Form1
+            // UsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -88,7 +88,7 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "UsersForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
