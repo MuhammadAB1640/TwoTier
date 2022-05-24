@@ -28,7 +28,17 @@ namespace TwoTier
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string command = "Select * from Users";
 
+            SqlCommand sqlCommand = new SqlCommand(command, connection);
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+            DataTable dt = new DataTable();
+
+            sqlDataAdapter.Fill(dt);
+
+            dataGridView1.DataSource = dt;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -39,7 +49,15 @@ namespace TwoTier
             string command = $"Insert into Users values('{username}', '{password}')";
             SqlCommand sqlCommand = new SqlCommand(command, connection);
 
-            connection.Open();
+            connection.Close();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            string username = Username.Text;
+            string command = $"Delete From Users Where Username='{username}'";
+            SqlCommand sqlCommand = new SqlCommand(command, connection);
+
             connection.Close();
         }
     }
