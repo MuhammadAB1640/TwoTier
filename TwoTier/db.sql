@@ -1,4 +1,4 @@
-Create Database TwoTier
+Create Database ThreeTier
 go
 
 Use TwoTier

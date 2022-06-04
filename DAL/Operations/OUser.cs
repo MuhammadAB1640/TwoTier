@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,45 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DAL.EUser;
-using DAL.OUser;
+using DAL.Entities;
 
-namespace TwoTier
+namespace DAL.Operations
 {
-    public partial class UsersForm : Form
+    public class OUser
     {
-        string connectionString = "Server=localhost; database=ThreeTier; Integrated Security=True";
-        SqlConnection connection;
-        public UsersForm()
+        public void Save(EUser Username, EUser Password)
         {
-            InitializeComponent();
-
-            connection = new SqlConnection(connectionString);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            string command = "Select * from Users";
-
-            SqlCommand sqlCommand = new SqlCommand(command, connection);
-
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-
-            DataTable dt = new DataTable();
-
-            sqlDataAdapter.Fill(dt);
-
-            dataGridView1.DataSource = dt;
-        }
-
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-
             string username = Username.Text;
             string password = Password.Text;
             string command = $"Insert into Users values('{username}', '{password}')";
@@ -53,8 +22,7 @@ namespace TwoTier
 
             connection.Close();
         }
-
-        private void DeleteButton_Click(object sender, EventArgs e)
+        public void Delete(EUser Username)
         {
             string username = Username.Text;
             string command = $"Delete From Users Where Username='{username}'";
@@ -62,8 +30,7 @@ namespace TwoTier
 
             connection.Close();
         }
-
-        private void ReadButton_Click(object sender, EventArgs e)
+        public void Read()
         {
             string command = "Select * from Users";
 
