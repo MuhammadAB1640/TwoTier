@@ -22,6 +22,7 @@ namespace DAL.Operations
 
             connection.Close();
         }
+
         public void Delete(EUser Username)
         {
             string username = Username.Text;
@@ -30,6 +31,7 @@ namespace DAL.Operations
 
             connection.Close();
         }
+
         public void Read()
         {
             string command = "Select * from Users";
